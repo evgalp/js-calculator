@@ -1,0 +1,109 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+}
+
+body{
+  text-align: center;
+}
+
+.calculator{
+  $calculator-display-bg: #f7f7f7;
+  $calculator-display-text: #222;
+  $calculator-text-color: #222;
+  $calculator-border: #ededed;
+  $calculator-key-regular-bg: #f7f7f7;
+  $calculator-key-hover-bg: #dedede;
+  $calculator-key-operand-bg: #255d83;
+  $calculator-key-operand-text-color: #fff;
+  $calculator-key-operand-bg-hover: #255d83;
+  $calculator-key-operand-text-color-hover: #fff;
+  $calculator-key-calculate-bg: #5fcf80;
+  $calculator-key-calculate-bg-hover: #5fcf80;
+  $calculator-key-calculate-text-color: #fff;
+  $calculator-key-calculate-text-color-hover: #fff;
+
+  max-width: 500px;
+  margin: 10em auto;
+  color: $calculator-text-color;
+  font-family: monospace, sans-serif;
+  font-size: 30px;
+  &__display{
+    width: 100%;
+    text-align: right;
+    background: $calculator-display-bg;
+    color: $calculator-display-text;
+    padding: 15px 15px;
+    box-sizing: border-box;
+    border-top: 1px solid $calculator-border;
+    border-left: 1px solid $calculator-border;
+    border-right: 1px solid $calculator-border;
+  }
+
+  &__keyboard-wrapper{
+
+  }
+
+  &__keyboard{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    width: 100%;
+  }
+
+  &__key{
+    display: grid;
+    align-content: center;
+    padding: 15px 0;
+    border: 1px solid transparent;
+    border-top-color: $calculator-border;
+    border-left-color: $calculator-border;
+    border-collapse: collapse;
+    box-sizing: border-box;
+    background-color: $calculator-key-regular-bg;
+    transition: .3s ease;
+    &:nth-child(4){
+      border-right-color: $calculator-border;
+    }
+    &:nth-child(6){
+      border-bottom-color: $calculator-border;
+      border-right-color: $calculator-border;
+    }
+    &:nth-last-child(-n+3){
+      border-bottom-color: $calculator-border;
+    }
+    &:last-child{
+
+    }
+    &:hover{
+      cursor: pointer;
+      background-color: $calculator-key-hover-bg;
+    }
+    &--operand{
+      background-color: $calculator-key-operand-bg;
+      color: $calculator-key-operand-text-color;
+      &:hover{
+        opacity: .8;
+        background-color: $calculator-key-operand-bg-hover;
+        color: $calculator-key-operand-text-color-hover;
+      }
+    }
+    &--regular{
+
+    }
+    &--calculate{
+      grid-column: 4;
+      grid-row: 2 / 6;
+      background-color: $calculator-key-calculate-bg;
+      color: $calculator-key-calculate-text-color;
+      &:hover{
+        background-color: $calculator-key-calculate-bg;
+        color: $calculator-key-calculate-text-color;
+        opacity: .8;
+      }
+
+    }
+  }
+}
